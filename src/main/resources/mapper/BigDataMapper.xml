@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsm.big.data.mapper.BigDataMapper">
+    <insert id="saveBatch" parameterType="java.util.List">
+        insert into big_data(uuid,mobile)values
+        <foreach collection="bigDataEntities" item="item" index="index" separator=",">
+            (#{item.uuid},#{item.mobile})
+        </foreach>
+    </insert>
+</mapper>
